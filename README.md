@@ -3,7 +3,7 @@ Prueba técnica
 
 # Backend
 # Crear la base de datos en PostgreSQL
-`CREATE DATABASE amt`
+`CREATE DATABASE sicpa`
 #
 Verificar que la base de datos este corriendo por el puerto por defecto `5432`.
 El usuario por defecto de la base es `postgres`
