@@ -14,6 +14,7 @@ Realizar el  Clean and Build al proyecto backed y automáticamente se crea el es
 
 # Frontend `sicpa-web`
 El proyecto fue generado con  [Angular CLI](https://github.com/angular/angular-cli) version `14.2.7.` y Visual Code
+#
 Ejecutar `npm install` para descargar todas las dependencias del proyecto.
 #
 Los datos de pruebas son los siguientes:
