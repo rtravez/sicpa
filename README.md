@@ -1,7 +1,4 @@
-# sicpa
-Prueba técnica
-
-# Backend
+# Backend `sicpa-root`
 # Crear la base de datos en PostgreSQL
 `CREATE DATABASE sicpa`
 #
@@ -15,8 +12,9 @@ Si prefiere cambiar las configuraciones en el archivo `application.properties`
 El proyecto esta generado con Spring Tools `4.16.1.RELEASE` y `Java 11`
 Realizar el  Clean and Build al proyecto backed y automáticamente se crea el esquema de base de datos con datos de prueba.
 
-# Frontend
-El proyecto fue generado con  [Angular CLI](https://github.com/angular/angular-cli) version `14.2.7.`
+# Frontend `sicpa-web`
+El proyecto fue generado con  [Angular CLI](https://github.com/angular/angular-cli) version `14.2.7.` y Visual Code
+#
 Ejecutar `npm install` para descargar todas las dependencias del proyecto.
 #
 Los datos de pruebas son los siguientes:
