@@ -9,7 +9,7 @@ Verificar que la base de datos este corriendo por el puerto por defecto `5432`.
 El usuario por defecto de la base es `postgres`
 La contraseña es: `admin`
 
-Si prefiere cambiar las configuraciones en el archivo `application.properties `
+Si prefiere cambiar las configuraciones en el archivo `application.properties`
 
 # Spring Tools
 El proyecto esta generado con Spring Tools `4.16.1.RELEASE` y `Java 11`
@@ -21,18 +21,17 @@ Ejecutar `npm install` para descargar todas las dependencias del proyecto.
 #
 Los datos de pruebas son los siguientes:
 #
-Usuario rene
-Contraseña: 12345
+Usuario: `rene`
+Contraseña: `12345`
 #
 
-Usuario anita
-Contrasena: 12345
+Usuario: `anita`
+Contrasena: `12345`
 #
 ## Development server
 Ejecutar en la consola de proyecto `ng serve -o` y navegar `http://localhost:4200/`.
 
-# Ejercicio
-Technical Interview Proposal
+# Technical Interview Proposal
 I, as a technical interviewer, I request you implement a project that allow me to evaluate your experience in terms of software development, the use of tools and quality control.
 The project consists of developing an application or a system that solves the following database model.
 
