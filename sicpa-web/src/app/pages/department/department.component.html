@@ -1,0 +1,93 @@
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<p-toast></p-toast>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <p-button icon="pi pi-plus" label="Nuevo" class="p-button-success" (click)="openNew()"></p-button>
+      <div class=" card-body">
+
+        <p-table [value]="departments">
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col" pSortableColumn="name">Nombre
+                <p-sortIcon field="name"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="description">Descripción
+                <p-sortIcon field="description"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="phone">Teléfono
+                <p-sortIcon field="phone"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="enterprise">Empresa
+                <p-sortIcon field="enterprise"></p-sortIcon>
+              </th>
+              <th scope="col">Acción</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-department>
+            <tr>
+              <td>{{department.name}}</td>
+              <td>{{department.description}}</td>
+              <td>{{department.phone}}</td>
+              <td>{{department.enterprise.name}}</td>
+              <td>
+                <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                        (click)="editDepartment(department)"></button>
+                <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                        (click)="deleteDepartment(department)"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <p-dialog [(visible)]="departmentDialog" header="Departamento" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+
+      <div class="field">
+        <label for="enterprise">Empresa</label>
+        <p-dropdown id="enterprise" [(ngModel)]="department.enterprise" optionLabel="name" inputId="enterprise"
+                    [options]="enterprises" [required]="true"
+                    placeholder="Seleccione">
+          <ng-template let-option pTemplate="item">
+            <span [class]="'product-badge status-' + option.id">{{option.name}}</span>
+          </ng-template>
+        </p-dropdown>
+        <small class="p-error" *ngIf="submitted && !department.enterprise.name">Empresa es requerida.</small>
+      </div>
+
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input type="text" pInputText id="name" [(ngModel)]="department.name" required/>
+        <small class="p-error" *ngIf="submitted && !department.name">Nombre es requerido.</small>
+      </div>
+
+      <div class="field">
+        <label for="description">Descripción</label>
+        <textarea id="description" pInputTextarea [(ngModel)]="department.description" required rows="3"
+                  cols="20"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="phone">Teléfono</label>
+        <p-inputMask id="phone" mask="(999) 999-9999" [(ngModel)]="department.phone" placeholder="(999) 999-9999"></p-inputMask>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton label="Guardar" icon="pi pi-check" class="p-button-text"
+              (click)="saveDepartment()"></button>
+    </ng-template>
+  </p-dialog>
+  <p-confirmDialog></p-confirmDialog>
+</div>
+<!-- ============================================================== -->
+<!-- End Page Content -->
+<!-- ============================================================== -->

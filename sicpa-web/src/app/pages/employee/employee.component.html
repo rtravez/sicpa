@@ -1,0 +1,118 @@
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<p-toast></p-toast>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <p-button icon="pi pi-plus" label="Nuevo" class="p-button-success" (click)="openNew()"></p-button>
+      <div class=" card-body">
+
+        <p-table [value]="departmentEmployees">
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col" pSortableColumn="name">Nombre
+                <p-sortIcon field="name"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="surname">Apellido
+                <p-sortIcon field="surname"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="email">Correo
+                <p-sortIcon field="email"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="position">Posición
+                <p-sortIcon field="position"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="age">Edad
+                <p-sortIcon field="age"></p-sortIcon>
+              </th>
+              <th scope="col" pSortableColumn="department">Departamento
+                <p-sortIcon field="department"></p-sortIcon>
+              </th>
+              <th scope="col">Acción</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-departmentEmployee>
+            <tr>
+              <td>{{departmentEmployee.employee.name}}</td>
+              <td>{{departmentEmployee.employee.surname}}</td>
+              <td>{{departmentEmployee.employee.email}}</td>
+              <td>{{departmentEmployee.employee.position}}</td>
+              <td>{{departmentEmployee.employee.age}}</td>
+              <td>{{departmentEmployee.department.name}}</td>
+              <td>
+                <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                        (click)="editEmployee(departmentEmployee)"></button>
+                <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                        (click)="deleteEmployee(departmentEmployee)"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <p-dialog [(visible)]="employeeDialog" header="Empleado" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+
+      <div class="field">
+        <label for="department">Departamento</label>
+        <p-dropdown id="department" [(ngModel)]="department" optionLabel="name" inputId="department"
+                    [options]="departments" [required]="true"
+                    placeholder="Seleccione">
+          <ng-template let-option pTemplate="item">
+            <span [class]="'product-badge status-' + option.id">{{option.name}}</span>
+          </ng-template>
+        </p-dropdown>
+        <small class="p-error" *ngIf="submitted && !department.name">Departamento es requerida.</small>
+      </div>
+
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input type="text" pInputText id="name" [(ngModel)]="departmentEmployee.employee.name" required/>
+        <small class="p-error" *ngIf="submitted && !departmentEmployee.employee.name">Nombre es requerido.</small>
+      </div>
+
+      <div class="field">
+        <label for="surname">Apellido</label>
+        <input type="text" pInputText id="surname" [(ngModel)]="departmentEmployee.employee.surname" required/>
+        <small class="p-error" *ngIf="submitted && !departmentEmployee.employee.surname">Apellido es requerido.</small>
+      </div>
+
+      <div class="field">
+        <label for="email">Correo</label>
+        <input type="text" pInputText id="email"
+               [(ngModel)]="departmentEmployee.employee.email"/>
+      </div>
+
+      <div class="field">
+        <label for="position">Posición</label>
+        <input type="text" id="position" pInputText [(ngModel)]="departmentEmployee.employee.position"/>
+      </div>
+
+      <div class="field">
+        <label for="age">Edad</label>
+        <p-inputNumber id="age" [(ngModel)]="departmentEmployee.employee.age" [showButtons]="true"
+                       buttonLayout="horizontal" [min]="18" [max]="65" [size]="2"
+                       inputId="age" spinnerMode="horizontal" [step]="1" [minFractionDigits]="0" [maxFractionDigits]="0"
+                       decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
+                       incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+        >
+        </p-inputNumber>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton label="Guardar" icon="pi pi-check" class="p-button-text"
+              (click)="saveEmployee()"></button>
+    </ng-template>
+  </p-dialog>
+  <p-confirmDialog></p-confirmDialog>
+</div>
+<!-- ============================================================== -->
+<!-- End Page Content -->
+<!-- ============================================================== -->

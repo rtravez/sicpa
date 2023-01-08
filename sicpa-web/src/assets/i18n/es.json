@@ -1,0 +1,27 @@
+{
+  "common": {
+    "app": "Sicpa",
+    "home": "Inicio",
+    "login": "Iniciar sesión",
+    "page": "Página",
+    "menu": "Menú principal",
+    "searchFilters": "Filtros de búsqueda",
+    "emptyMessage": "Seleccione un criterio de búsqueda",
+    "emptyResult": "No existen resultados para la búsqueda",
+    "search": "Buscar",
+    "select": "Seleccione",
+    "accept": "Aceptar",
+    "cancel": "Cancelar",
+    "action": "Acción",
+    "save": "Guardar",
+    "edit": "Editar",
+    "update": "Actualizar",
+    "new": "Nuevo",
+    "back": "Atrás",
+    "yes": "Si",
+    "no": "No",
+    "confirmation": "Confirmación",
+    "confirmDelete": "¿Esta seguro de eliminar este elemento?",
+    "confirmContinue": "¿Está seguro de que desea continuar?"
+  }
+}
