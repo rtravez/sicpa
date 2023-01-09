@@ -23,7 +23,7 @@ public class SwaggerConfig{
     }
 
     private ApiInfo getApiInfo() {
-        return new ApiInfo("Order Service API", "Order Service API Description", "1.0", "https://www.uisrael.com/term", new Contact("Universidad Israel", "https://www.uisrael.com/", "info@uisrael.edu.ec"),
+        return new ApiInfo("Order Service API", "Order Service API Description", "1.0", "https://www.sicpa.com/term", new Contact("Sicpa", "https://www.sicpa.com/", "info@sicpa.com"),
                 "LICENSE", "LICENSE URL", Collections.emptyList());
     }
 

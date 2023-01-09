@@ -53,7 +53,7 @@ public class EmployeeController {
 	private IEmployeeMapper employeeMapper;
 	private Map<String, Object> response = new HashMap<>();
 
-	@Secured({ "ROLE_ADMIN", "ROLE_USER" })
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" ,"ROLE_OPERATOR"})
 	@GetMapping("")
 	public ResponseEntity<BaseResponseDto<Object>> findAll() {
 		try {
@@ -74,7 +74,7 @@ public class EmployeeController {
 		}
 	}
 
-	@Secured({ "ROLE_ADMIN" })
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" ,"ROLE_OPERATOR"})
 	@PostMapping("")
 	public ResponseEntity<Map<String, Object>> create(@Valid @RequestBody DepartmentEmployeeDto departmentEmployeeDto,
 			BindingResult result) {
@@ -106,7 +106,7 @@ public class EmployeeController {
 		}
 	}
 
-	@Secured({ "ROLE_ADMIN" })
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" ,"ROLE_OPERATOR"})
 	@PutMapping("/{id}")
 	public ResponseEntity<Map<String, Object>> update(@PathVariable Long id,
 			@Valid @RequestBody DepartmentEmployeeDto departmentEmployeeDto, BindingResult result) {

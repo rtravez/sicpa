@@ -28,10 +28,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/security", "/swagger-ui.html", "/webjars/**").permitAll()
-				.antMatchers(HttpMethod.GET, "/api/enterprises").permitAll().antMatchers("/api/enterprises/{id}")
-				.permitAll().antMatchers("/api/enterprises/**").permitAll().anyRequest().authenticated().and().cors()
-				.configurationSource(corsConfigurationSource());
+		http.authorizeRequests()
+				.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/security",
+						"/swagger-ui.html", "/webjars/**")
+				.permitAll().antMatchers(HttpMethod.GET, "/api/enterprises", "/api/departments", "/api/employees")
+				.permitAll().antMatchers("/api/enterprises/{id}", "/api/departments/{id}", "/api/employees/{id}")
+				.permitAll().antMatchers("/api/enterprises/**", "/api/departments/**", "/api/employess/**").permitAll()
+				.anyRequest().authenticated().and().cors().configurationSource(corsConfigurationSource());
 	}
 
 	@Bean
@@ -48,7 +51,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilter() {
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(corsConfigurationSource()));
+		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(
+				new CorsFilter(corsConfigurationSource()));
 		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		return bean;
 	}

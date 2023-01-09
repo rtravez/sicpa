@@ -45,7 +45,7 @@ public class EnterpriseController {
 	private IEnterpriseMapper enterpriseMapper;
 	private Map<String, Object> response = new HashMap<>();
 
-	@Secured({ "ROLE_ADMIN", "ROLE_USER" })
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" ,"ROLE_OPERATOR"})
 	@GetMapping("")
 	public ResponseEntity<BaseResponseDto<Object>> findAll() {
 		try {
@@ -65,7 +65,7 @@ public class EnterpriseController {
 		}
 	}
 
-	@Secured({ "ROLE_ADMIN" })
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" ,"ROLE_OPERATOR"})
 	@PostMapping("")
 	public ResponseEntity<Map<String, Object>> create(@Valid @RequestBody EnterpriseDto enterpriseDto,
 			BindingResult result) {
@@ -92,7 +92,7 @@ public class EnterpriseController {
 		}
 	}
 
-	@Secured({ "ROLE_ADMIN" })
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" ,"ROLE_OPERATOR"})
 	@PutMapping("/{id}")
 	public ResponseEntity<Map<String, Object>> update(@PathVariable Long id, @Valid @RequestBody EnterpriseDto enterpriseDto,
 			BindingResult result) {
