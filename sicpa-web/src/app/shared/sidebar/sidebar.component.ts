@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
         icon: 'pi pi-plus',
         submenu: [
           {label: 'Empresa', icon: 'pi pi-plus', routerLink: ['/dashboard/enterprise'], queryParams: {'recent': 'true'}},
-          {label: 'Departameto', icon: 'pi pi-plus', routerLink: ['/dashboard/department'], queryParams: {'recent': 'true'}},
+          {label: 'Departamento', icon: 'pi pi-plus', routerLink: ['/dashboard/department'], queryParams: {'recent': 'true'}},
           {label: 'Empleado', icon: 'pi pi-plus', routerLink: ['/dashboard/employee'], queryParams: {'recent': 'true'}}
         ]
       },

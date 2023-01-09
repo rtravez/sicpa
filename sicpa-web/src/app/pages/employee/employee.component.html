@@ -44,6 +44,7 @@
                 <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
                         (click)="editEmployee(departmentEmployee)"></button>
                 <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                        [disabled]="!authService.hasRole('ROLE_ADMIN')"
                         (click)="deleteEmployee(departmentEmployee)"></button>
               </td>
             </tr>
