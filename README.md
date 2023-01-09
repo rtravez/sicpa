@@ -19,11 +19,11 @@ Ejecutar `npm install` para descargar todas las dependencias del proyecto.
 #
 Los datos de pruebas son los siguientes:
 #
-Usuario `adminstrador`: `rene`
+`Usuario adminstrador`: `rene`
 Contraseña: `12345`
 #
 
-Usuario `operador`: `anita`
+`Usuario operador`: `anita`
 Contrasena: `12345`
 #
 ## Development server
